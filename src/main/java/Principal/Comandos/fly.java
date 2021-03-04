@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class fly implements CommandExecutor {
 
-    private ArrayList<Player> fly = new ArrayList<Player>();
+    public static ArrayList<Player> fly = new ArrayList<Player>();
 
     @Override
     public boolean onCommand(CommandSender s, Command c, String label, String[] args) {

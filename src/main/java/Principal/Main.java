@@ -1,7 +1,9 @@
 package Principal;
 
 import Principal.Comandos.fly;
+import Principal.Eventos.FlyEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -12,6 +14,7 @@ public class Main extends JavaPlugin {
         instance = this;
         loadCommands();
         loadConfig();
+        loadEvents();
         Bukkit.getConsoleSender().sendMessage("§a[Fly] Plugin ativado com sucesso.");
     }
 
@@ -21,6 +24,11 @@ public class Main extends JavaPlugin {
 
     public void loadCommands() {
         getCommand("fly").setExecutor(new fly());
+    }
+
+    public void loadEvents() {
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(new FlyEvent(), this);
     }
 
     private void loadConfig() {
